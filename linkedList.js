@@ -141,6 +141,35 @@ class linkedList {
             
         }
      }
+
+     insertAtHead(data){
+        let newnode = new Node(data);
+        newnode.next = this.head;
+        this.head = newnode;
+        return newnode;
+
+     }
+
+     deleteAtTail(){
+        let thead = this.head;
+        if(thead.next == null){
+            thead = null;
+        }else{
+            while(thead.next.next != null)
+                 thead = thead.next;
+        }
+        thead.next = null;
+
+     }
+
+
+     deleteAtHead(){
+        if(this.head!=null){
+            this.head = this.head.next;
+        }
+    }
+
+    
      toArray(data){
         let nodes =[];
         let thead = this.head;
@@ -162,7 +191,20 @@ list.insertAtTail(4);
 list.insertAtTail(5);
 list.insertAtTail(6);
 list.insertAtTail(7); 
+
+list.insertAtHead(2);
+list.insertAtHead(1);
+
+list.deleteAtTail();
+list.deleteAtTail();
+
+list.deleteAtHead();
+list.deleteAtHead();
+
 console.log(list.toArray());
-console.log(list.toArray().length)
+
+// console.log(list.toArray().length)
+
+
 
 
